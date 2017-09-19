@@ -1,0 +1,266 @@
+syntax = "proto2";
+option java_package = "com.midea.smart.common.protocol.base.app";
+option java_outer_classname = "ApplianceRequest";
+
+//1. 获取家庭下的家电列表 appliance/list/get
+message ListGetReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string homegroupId=3;
+	optional string language=4;
+	optional string appId=5;
+}
+
+//3. 家电激活 appliance/active
+message ActiveReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceSn=3;
+	optional string referSn=4;
+	optional string homegroupId=5;
+	optional string applicanceName=6;
+	optional string applianceType=7;
+	optional string modelNumber=8;
+	optional string applianceDes=9;
+	optional string ip=10;
+	optional string language=11;
+	optional string appId=12;
+	optional string tsn=13;
+}
+//家电激活指引 appliance/active/navigation
+message ActiveNavigationReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceSn=3;
+	optional string language=4;
+	optional string appId=5;
+}
+//4. 删除家电 appliance/delete
+message DeleteReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceCode=3;
+	optional string language=4;
+	optional string appId=5;
+}
+
+//5. 家电信息修改 appliance/info/modify
+message InfoModifyReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceCode=3;
+	optional string applianceName=4;
+	optional string applianceDes=5;
+	optional string language=6;
+	optional string appId=7;
+}
+
+
+//6. 家电类型查询 appliance/type/list/get
+message TypeListGetReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceType=3;
+	optional string language=4;
+	optional string appId=5;
+}
+
+//7. 家电管家分组查询 appliance/manager/group/get
+message ManagerGroupGetReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceType=3;
+	optional string language=4;
+	optional string appId=5;
+}
+
+//8. 家电应用数据透传 appliance/transparent/send
+message TransparentSendReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceCode=3;
+	optional string funId=4;
+	optional string order=5;
+	optional string language=6;
+	optional string appId=7;
+}
+
+//15. 获取用户家电列表 appliance/user/list/get
+message UserListGetReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string language=3;
+	optional string appId=4;
+}
+
+//17. 家电注册 appliance/register
+message RegisterReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceSn=3;
+	optional string language=4;
+	optional string appId=5;
+}
+
+//19. 家电信息及绑定关系查询 appliance/info/bind/get
+message InfoBindGetReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceCode=3;
+	optional string language=4;
+	optional string appId=5;
+}
+
+//21. 家电绑定家庭 appliance/home/bind
+message HomeBindReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string referSn=3;
+	optional string homegroupId=4;
+	optional string applicanceName=5;
+	optional string applianceType=6;
+	optional string modelNumber=7;
+	optional string applianceDes=8;
+	optional string language=9;
+	optional string appId=10;
+	optional string tsn=11;
+}
+
+//23. 批量查询家电信息 appliance/batch/info/get
+message BatchInfoGetReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	repeated string applianceCodes=3;
+	optional string language=4;
+	optional string appId=5;
+}
+
+//24. 获取用户所有家庭的家电列表 appliance/home/list/get
+message HomeListGetReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string language=3;
+	optional string appId=4;
+}
+
+//25. Wifi升级查询 appliance/wifi/update/check
+message WifiUpdateCheckReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string wifiVersion=3;
+	optional string language=4;
+	optional string appId=5;
+}
+
+//27.家电产品条形码上传接口 productcode/upload
+message ProductcodeUploadReq
+{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceSn=3;
+	optional string productCode=4;
+	optional string appId=5;
+}
+message ProductcodeGetReq
+{
+	repeated string productCodes=1;
+	optional string applianceType=2;
+	optional string beginTimeStr=3;
+	optional string endTimeStr=4;
+	optional string appId=5;
+}
+message Active2GReq{
+	optional string applianceSn=1;
+	optional string homegroupId=2;
+	optional string sessionId=3;
+	optional string src=4;
+	optional string ip=5;
+	optional string appId=6;
+	optional string language=7;
+	optional string tsn=8;
+}
+message PositionInfoReq{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceCode=3;
+	optional string language=4;
+	optional string lng=5;
+	optional string lat=6;
+	optional string countryId=7;
+	optional string provinceId=8;
+	optional string cityId=9;
+	optional string street=10;
+	optional string streetNumber=11;
+	optional string tradeInfo=12;
+	optional string appId=13;
+}
+message ModelInfoReq{
+	optional string enterprise=1;
+	optional string appliance_type=2;
+	optional string model_number=3;
+	optional string product_model=4;
+}
+message PackUpdateConfirmReq{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string stamp=3;
+	optional string applianceCode=4;
+	optional string newPackVersion=5;
+	optional string confirm=6;
+	optional string language=7;
+}
+
+message ConsumingTimeReq{
+	optional string applianceId=1;
+	optional string sessionId=2;
+	optional string consumingTime=3;
+}
+ //家电激活状态 激活 1  未激活0
+message ActiveStatusReq{
+	optional string sn=1;
+	optional string appId=2;
+	optional string status=3;
+}
+ //家电激活状态 激活 1  未激活0
+message SNAPExistsReq{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string sn=3;
+	optional string randomCode=4;
+	optional string status=5;
+}
+//空调伴侣，通过家电品类获取对应家电的红外码库。
+message ApplianceLibraryGetReq{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceType=3;
+	optional string language=4;
+}
+//空调伴侣，当用户在使用空调伴侣时，如果家电品牌对应家电型号无法匹配到码库时，用户可主动上报家电品牌及家电型号信息。
+message ApplianceModelReportReq{
+	optional string src=1;
+	optional string sessionId=2;
+	optional string applianceBrand=3;
+	optional string applianceModel=4;
+	optional string applianceType=5;
+	optional string language=6;
+}
+//3.9.0 配网优化 根据sn查询设备在线状态
+message ApplianceStatusBySnReq{
+	optional string applianceSn=1;
+}
